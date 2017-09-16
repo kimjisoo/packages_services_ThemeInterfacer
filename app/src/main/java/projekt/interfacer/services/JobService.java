@@ -522,7 +522,9 @@ public class JobService extends Service {
     private void uninstall(String packageName, IPackageDeleteObserver observer) {
         try {
             isWaiting = true;
-            getPM().deletePackageAsUser(packageName, observer, 0, UserHandle.USER_SYSTEM);
+            int versionCode = getPM().getPackageInfo(packageName, 0, UserHandle.USER_SYSTEM)
+                    .versionCode;
+            getPM().deletePackageAsUser(packageName, versionCode, observer, UserHandle.USER_SYSTEM, 0);
             while (isWaiting) {
                 Thread.sleep(500);
             }
@@ -533,7 +535,7 @@ public class JobService extends Service {
 
     private void switchOverlay(String packageName, boolean enable) {
         try {
-            getOMS().setEnabled(packageName, enable, UserHandle.USER_SYSTEM, false);
+            getOMS().setEnabled(packageName, enable, UserHandle.USER_SYSTEM);
         } catch (RemoteException e) {
             Log.e(TAG, "", e);
         }

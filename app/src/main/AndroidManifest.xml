@@ -31,7 +31,8 @@
         android:name="android.permission.INSTALL_PACKAGES"
         tools:ignore="ProtectedPermissions"/>
     <uses-permission android:name="android.permission.INSTALL_GRANT_RUNTIME_PERMISSIONS"/>
-    <uses-permission android:name="oms.permission.MODIFY_OVERLAYS"/>
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL"/>
+    <uses-permission android:name="android.permission.CHANGE_OVERLAY_PACKAGES"/>
     <protected-broadcast android:name="projekt.interfacer.STATUS_CHANGED" />
     <protected-broadcast android:name="projekt.interfacer.CALLER_AUTHORIZED" />
 
