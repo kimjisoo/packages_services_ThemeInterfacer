@@ -643,7 +643,7 @@ public class JobService extends Service {
 
         // Let system know it's time for a font change
         SystemProperties.set("sys.refresh_theme", "1");
-        Typeface.recreateDefaults();
+        //Typeface.recreateDefaults();
         float fontSize = Settings.System.getFloatForUser(getContentResolver(),
                 Settings.System.FONT_SCALE, 1.0f, UserHandle.USER_CURRENT);
         Settings.System.putFloatForUser(getContentResolver(),
